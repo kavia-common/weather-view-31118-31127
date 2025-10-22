@@ -1,0 +1,244 @@
+:root {
+  --color-primary: #2563EB; /* Ocean Blue */
+  --color-secondary: #F59E0B; /* Amber */
+  --color-success: #F59E0B;
+  --color-error: #EF4444;
+  --color-text: #111827; /* Gray-900 */
+  --color-bg: #f9fafb; /* Gray-50 */
+  --color-surface: #ffffff;
+  --color-muted: #6B7280; /* Gray-500 */
+  --ring: 0 0 0 3px rgba(37, 99, 235, 0.25);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --shadow-soft: 0 8px 24px rgba(2, 6, 23, 0.06);
+  --shadow-hover: 0 14px 34px rgba(2, 6, 23, 0.12);
+
+  --grid-gap: 16px;
+}
+
+/* Subtle gradient background */
+.app-bg {
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,0.10), transparent),
+              radial-gradient(800px 400px at 110% 10%, rgba(59,130,246,0.08), transparent),
+              linear-gradient(180deg, rgba(243,244,246,0.8), rgba(249,250,251,1));
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Retro accent: pixel style heading */
+.pixel-accent {
+  font-family: 'Press Start 2P', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  letter-spacing: 1px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Card */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(17,24,39,0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37,99,235,0.20);
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: var(--color-primary);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-amber {
+  background: var(--color-secondary);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: none;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  border: 1px solid rgba(17,24,39,0.12);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 14px 16px;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--ring);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  border: 1px solid rgba(17,24,39,0.06);
+  box-shadow: var(--shadow-soft);
+}
+
+.header .title {
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: 0.2px;
+}
+
+.header .badge {
+  font-size: 12px;
+  background: rgba(37,99,235,0.1);
+  color: var(--color-primary);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(37,99,235,0.25);
+}
+
+/* Search bar */
+.search-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+/* Weather grid */
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 720px) {
+  .weather-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+}
+
+/* Weather details */
+.weather-main {
+  padding: 22px;
+}
+
+.weather-side {
+  padding: 16px;
+}
+
+.metric {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  border-bottom: 1px dashed rgba(17,24,39,0.08);
+}
+
+.metric:last-child {
+  border-bottom: none;
+}
+
+.metric .label {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.metric .value {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* State helpers */
+.empty, .error, .info {
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(17,24,39,0.15);
+  background: linear-gradient(180deg, rgba(249,250,251,0.8), rgba(255,255,255,0.9));
+}
+
+.error {
+  border-color: rgba(239,68,68,0.35);
+  color: var(--color-error);
+  background: linear-gradient(180deg, rgba(254,242,242,0.85), #fff);
+}
+
+.info {
+  border-color: rgba(37,99,235,0.3);
+  color: var(--color-primary);
+}
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, rgba(229,231,235,0.6), rgba(243,244,246,1), rgba(229,231,235,0.6));
+  background-size: 200% 100%;
+  animation: shimmer 1400ms ease-in-out infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Footer */
+.footer {
+  margin-top: 22px;
+  padding: 18px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* Utilities */
+.row { display: flex; gap: 12px; align-items: center; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.center { display: grid; place-items: center; }
+.spread { display: flex; align-items: center; justify-content: space-between; }
+
+/* Retro button accent small */
+.pixel-button {
+  font-family: 'Press Start 2P', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(17,24,39,0.2);
+  background: repeating-linear-gradient(45deg, rgba(37,99,235,0.1), rgba(37,99,235,0.1) 6px, rgba(37,99,235,0.18) 6px, rgba(37,99,235,0.18) 12px);
+  color: var(--color-primary);
+}
